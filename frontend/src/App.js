@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import { addItem } from "./Pages/AddItem";
+
 //import Navbar from "./components/Navbar";
-//import {Browser, Routes, Route} from 'react-router-dom';
+import {Browser, Routes, Route} from 'react-router-dom';
 
 const App = () => {
   const [meals, setMeal] = useState([]);
 
   const handler = () => {
 
-    fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood`)
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=b`)
       .then((res) => res.json())
       .then((result) => {
         setMeal(result.meals || []);
@@ -24,34 +26,24 @@ const App = () => {
    []);
 
   return ( 
+
+    
   
- 
-    /*  <div class = "whole">
-      <div class = "container">
-      <h1 class = "title">Random Meals</h1>
-     
-      <button class = "button" onClick={handler}>Click</button>
-      </div>
-      <div class = "meal">
-        <h2 >{meal.strMeal}</h2>
-        <h2>CATEGORY: {meal.strCategory}</h2>
-        <h2>AREA: {meal.strArea}</h2>
-        <p>INSTRUCTIONS: <p></p> {meal.strInstructions}</p>
-        <img  src={meal.strMealThumb} alt={meal.strMeal} />
-      </div>
-   </div>  */
-   <div>
+   <body className = "body">
+  
+   <div className = "container">
   {meals.map((item, index) => (
-    <div key={index}>
-      <p>Meal: {item.strMeal}</p>
+    <div  key={index} className="child"> 
+      <h2>Meal: {item.strMeal}</h2>
       <p>Category: {item.strCategory}</p>
       <p>Area: {item.strArea}</p>
       <p>Instructions: {item.strInstructions}</p>
-      <img src={item.strMealThumb} alt={item.strMeal} />
+      <img className = "img" src={item.strMealThumb} alt={item.strMeal} />
+      <p>{console.log(index)}</p>
     </div>
   ))}
 </div>
-
+</body>
 
   
     );

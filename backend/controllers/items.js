@@ -20,8 +20,23 @@ const deleteItem = async (req, res) => {
     res.status(200).json(item)
 }
 
+const addItem = async (req, res) => {
+    // get the text from the req.body
+    const {text} = req.body
+    // create new todo object with model
+    const itemObj = new Todo ({
+        text
+       })
+    const newItem = await itemObj.save()
+       res.status(200).json(newItem)
+    // await for it to be saved
+    // respond with json()
+  
+}
+
 module.exports = {
     getItems,
     getItem,
-    deleteItem
+    deleteItem,
+    addItem
 }
