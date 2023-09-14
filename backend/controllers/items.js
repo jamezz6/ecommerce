@@ -1,4 +1,4 @@
-const Item = require("../models/item")
+ const Item = require("../models/shoppingCart")
 
 const getItems = async (req, res) => {
     const items = await Item.find({})
@@ -16,7 +16,7 @@ const getItem = async (req, res) => {
 
 const deleteItem = async (req, res) => {
     const { id } = req.params
-    const item = await item.findByIdAndDelete(id)
+    const item = await Item.findByIdAndDelete(id)
     res.status(200).json(item)
 }
 

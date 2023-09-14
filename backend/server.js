@@ -8,7 +8,7 @@ const cors = require("cors")
 const app = express()
 app.use(cors())
 app.use(express.json())
-app.use("/items", itemRoutes)
+app.use("/shoppingCart", itemRoutes)
 
 mongoose.connect(process.env.MONGODB_URL)
 .then(() => {
