@@ -4,14 +4,14 @@ import "./App.css";
 //import {Browser, Routes, Route} from 'react-router-dom';
 
 const App = () => {
-  const [meal, setMeal] = useState([]);
+  const [meals, setMeal] = useState([]);
 
   const handler = () => {
 
-    fetch(`www.themealdb.com/api/json/v1/1/filter.php?c=Seafood `)
+    fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood`)
       .then((res) => res.json())
       .then((result) => {
-        setMeal(result);
+        setMeal(result.meals || []);
 
    
        
@@ -40,16 +40,17 @@ const App = () => {
         <img  src={meal.strMealThumb} alt={meal.strMeal} />
       </div>
    </div>  */
-    <div>
-      {meal.map((item, index)=>{
-        <div key={index}>
-          <p> Meal: {item.strMeal}</p>
-          <p> {item.meal.strMeal}</p>
-
-        </div> 
-      }
-      )}
-      </div>
+   <div>
+  {meals.map((item, index) => (
+    <div key={index}>
+      <p>Meal: {item.strMeal}</p>
+      <p>Category: {item.strCategory}</p>
+      <p>Area: {item.strArea}</p>
+      <p>Instructions: {item.strInstructions}</p>
+      <img src={item.strMealThumb} alt={item.strMeal} />
+    </div>
+  ))}
+</div>
 
 
   
