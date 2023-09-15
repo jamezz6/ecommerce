@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import { addItem } from "./Pages/AddItem";
+import Cart from "./Cart"
+import actualCart from "./actualCart"
+//import { addItem } from "./Pages/AddItem";
 
-//import Navbar from "./components/Navbar";
-import {Browser, Routes, Route} from 'react-router-dom';
+// import Navbar from "./components/Navbar";
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 const App = () => {
   const [meals, setMeal] = useState([]);
+  const [cart, setCart] = useState([]);
+
 
   const handler = () => {
 
@@ -25,12 +29,21 @@ const App = () => {
   },
    []);
 
+   const addToCart = (item) => {
+    setCart([...cart, item]);
+  };
+
   return ( 
 
     
-  
+ <BrowserRouter>
+ <Routes>
    <body className = "body">
-  
+    <Cart cartItems={cart} /> 
+  <Route
+   path='/'
+   element={<actualCart/>}
+ />
    <div className = "container">
   {meals.map((item, index) => (
     <div  key={index} className="child"> 
@@ -39,13 +52,17 @@ const App = () => {
       <p>Area: {item.strArea}</p>
       <p>Instructions: {item.strInstructions}</p>
       <img className = "img" src={item.strMealThumb} alt={item.strMeal} />
-      <p>{console.log(index)}</p>
+    
+      <button onClick={() => addToCart(item)}>Add to Cart</button>
     </div>
   ))}
 </div>
-</body>
 
-  
+
+</body>
+</Routes>
+
+  </BrowserRouter>
     );
 }
 

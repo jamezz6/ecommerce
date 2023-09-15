@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { getItem } from "../api/getItem"
-import { updateItem } from "../api/updateItem"
 
 const EditItem = () => {
 
