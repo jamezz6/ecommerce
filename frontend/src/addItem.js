@@ -2,8 +2,8 @@ const API_URL = "http://localhost:4000"; // Replace with your backend API URL
 
 export const addItemToCart = async (meal) => {
   const item = {
-    text: meal.strMeal,        // Extract the meal name
-  image: meal.strMealThumb, // Extract the picture URL
+    text: meal.strMeal,        //the meal name
+  image: meal.strMealThumb, 
   price: meal.price 
   };
 

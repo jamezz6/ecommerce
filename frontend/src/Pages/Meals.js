@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { addItemToCart } from "./addItem";
+import { addItemToCart } from "../addItem";
 import {faker} from '@faker-js/faker'; 
 
 const Meals = () => {
@@ -47,6 +47,16 @@ const Meals = () => {
       });
   };
 
+
+  /* function getTotalCost() {
+    let totalCost = 0;
+    pricedMeals.forEach((item) => {
+      totalCost += item.price;
+    });
+    return totalCost;
+  } */
+
+
   return (
     <div>
       <body className="body">
@@ -63,6 +73,10 @@ const Meals = () => {
               <button onClick={() => addToCart(item)}>Add to Cart</button>
             </div>
           ))}
+          <div>
+         
+  
+          </div>
         </div>
       </body>
     </div>
