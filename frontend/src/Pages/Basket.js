@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getItems } from "../getItems";
 import Card from '../components/Card'
 import { deleteItem } from "../deleteItem";
+import "../css/page.css"
 const Basket = () => {
     const [items, setItems] = useState([])
 
@@ -40,9 +41,11 @@ const Basket = () => {
                         : <p>loading...</p>
                         
                 }
-            </>  <h1>Total: £{totalPrice}</h1>
+            </>  <div className="container">
+                <div className="box">
+                 <h1>Total: £{totalPrice}</h1>
    
-        </div>
+        </div></div></div>
    
     );
 

@@ -63,14 +63,15 @@ const Meals = () => {
         <div className="container">
           {pricedMeals.map((item, index) => (
             
-            <div key={index} className="child" >
+            <div key={index} className="child" > <div className="container3"> <div className="box2">
               <h2>Meal: {item.strMeal}</h2>
               <p>Category: {item.strCategory}</p>
               <p>Area: {item.strArea}</p>
               <p>Instructions: {item.strInstructions}</p>
               <p>Price: £{item.price}</p> {/* Display the price */}  
-              <img className="img" src={item.strMealThumb} alt={item.strMeal} />
-              <button onClick={() => addToCart(item)}>Add to Cart</button>
+              <img className="img" src={item.strMealThumb} alt={item.strMeal} height={200} width={150} />
+              <p><button className="button" onClick={() => addToCart(item)}>Add to Cart</button></p>
+              </div></div>
             </div>
           ))}
           <div>
