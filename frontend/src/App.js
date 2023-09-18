@@ -1,8 +1,8 @@
 
 import "./App.css";
-import Basket from "./Basket";
+import Basket from "./Pages/Basket";
 
-import Meals from "./Meals"
+import Meals from "./Pages/Meals"
 //import { addItem } from "./Pages/AddItem";
  import Navbar from "./components/Navbar";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
