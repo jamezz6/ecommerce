@@ -5,8 +5,20 @@ const Schema = mongoose.Schema
 const itemSchema = new Schema({
     text: {
         type: String,
-        required: true
-    }
+        required: true,
+        
+    },
+    image :{
+        type:String,
+        required:true
+
+    },
+     price :{
+        type:String,
+        required:true
+
+    } 
+
 })
 
 module.exports = mongoose.model("Item", itemSchema)
